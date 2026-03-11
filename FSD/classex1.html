@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<title>DOM Example</title> 
+</head> 
+<body> 
+<div id="container"> 
+<h1 id="heading">Hello World</h1> 
+<p>This is a paragraph.</p> 
+<ul id="list"> 
+<li class="list-item">Item 1</li> 
+<li class="list-item" id="removeMe">Item 2</li> 
+<li class="list-item">Item 3</li> 
+</ul> 
+<button onclick="addParagraph()">Add Paragraph</button> 
+<button onclick="removeItem()">Remove Item 2</button> 
+</div> 
+<script> 
+function addParagraph() { 
+let newPara = document.createElement("p"); 
+newPara.textContent = "New paragraph added!"; 
+// document.getElementById("container").insertBefore(newPara,container.firstChild); 
+// document.getElementById("container").insertBefore(newPara)
+// document.getElementById("container").appendChild(newPara);
+let container = document.getElementById("container");
+let paragraph = container.getElementsByTagName("p")[0];
+
+container.insertBefore(newPara, paragraph);
+} 
+function removeItem() { 
+let item = document.getElementById("removeMe"); 
+item.parentNode.removeChild(item); 
+} 
+</script> 
+</body> 
+</html>

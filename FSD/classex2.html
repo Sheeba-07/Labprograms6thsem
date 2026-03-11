@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <title>Mouse Events</title>
+  <style>
+    #mouseBox {
+      width: 200px;
+      height: 100px;
+      margin: 10px;
+      padding: 20px;
+      border: 2px solid black;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  Description
+  Triggered when the mouse
+  leaves an element
+  <h1>Mouse Events </h1>
+  <div id="mouseBox" onmouseover="mouseOver()" onmouseout="mouseOut()" onclick="mouseClick()"
+    ondblclick="mouseDoubleClick()" onmousedown="mouseDown()" onmouseup="mouseUp()">
+    Hover or Click Me!
+  </div>
+
+  <script>
+    let clickTimer = null;
+    function mouseOver() {
+      document.getElementById("mouseBox").style.backgroundColor = "lightblue";
+    }
+    function mouseOut() {
+      document.getElementById("mouseBox").style.backgroundColor = "white";
+    }
+    function mouseClick() {
+      // document.getElementById("mouseBox").innerHTML="Mouse Clicked!";
+      clickTimer = setTimeout(function () {
+        alert("Mouse Clicked!");
+        document.getElementById("mouseBox").innerHTML = "Mouse Clicked!";
+      }, 250);
+    }
+    function mouseDoubleClick() {
+      clearTimeout(clickTimer);
+      alert("Mouse Double Clicked!");
+      document.getElementById("mouseBox").innerHTML = "Mouse Double Clicked!";
+
+    }
+    function mouseDown() {
+      document.getElementById("mouseBox").style.border = "5px solid red";
+    }
+    function mouseUp() {
+      document.getElementById("mouseBox").style.border = "2px solid black";
+    } 
+  </script>
+
+</body>
+
+</html>
